@@ -1,0 +1,10 @@
+body {
+  font-family: sans-serif;
+}
+#app {
+  margin-bottom: 2em;
+}
+
+h2 {
+  margin-bottom: 0;
+}
