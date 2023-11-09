@@ -1,27 +1,17 @@
-import "./styles.css";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-/**
- * Send information from parent window to child iframe
- */
-var button = document.querySelector("#sendMessage");
-var messageArea = document.querySelector("#messageArea");
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+);
 
-function sendMessage() {
-  const message = document.querySelector("#message").value;
-  const iframe = document.querySelector("iframe");
-  iframe.contentWindow.postMessage(message, "*");
-}
-
-button.addEventListener("click", sendMessage);
-
-/**
- * Send information from child to parent.
- */
-
-function onMessageHandler(event) {
-  if (typeof event.data === "string") {
-    messageArea.innerText = event.data;
-  }
-}
-
-window.addEventListener("message", onMessageHandler);
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
